@@ -13,7 +13,7 @@ class Grocery(Base):
     quantity = Column(Integer, nullable=False)
     price = Column(Float, nullable=False)
     category = Column(String, nullable=False)
-    created_at = Column(DateTime, default=datetime.utc)
+    created_at = Column(DateTime, default=datetime.utcnow)
 
     def __repr__(self):
         return f"<Grocery(name={self.name}, quantity={self.quantity}, category={self.category})>"
