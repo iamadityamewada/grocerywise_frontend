@@ -1,0 +1,78 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# SQLite database files
+*.db
+*.sqlite3
+
+# Env files for environment variables
+.env
+
+# Logs
+*.log
+logs/
+
+# Virtual environment directories
+venv/
+env/
+.venv/
+ENV/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# IDE settings (Optional, for editors like VSCode, PyCharm)
+.vscode/
+.idea/
+
+# MacOS files
+.DS_Store
+
+# Docker files
+*.pid
+docker-compose.override.yml
+
+# Python egg files
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+lib/
+lib64/
+parts/
+sdist/
+wheels/
+share/python-wheels/
+
+# Testing and Coverage Results
+htmlcov/
+.tox/
+.nox/
+coverage.xml
+*.cover
+*.py,cover
+.cache
+nosetests.xml
+coverage/
+.pytest_cache/
+
+# Mypy
+.mypy_cache/
+
+# Alembic migrations (Optional, but recommended for SQLite, since you may not want to track migrations)
+alembic/versions/*
+
+# PyInstaller
+# Usually these files are written by a python script from a template
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
