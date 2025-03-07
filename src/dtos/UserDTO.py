@@ -1,4 +1,5 @@
 from pydantic import BaseModel, EmailStr, ConfigDict
+from typing import Optional
 
 # Request DTO for creating a new user
 class CreateUserDTO(BaseModel):
@@ -9,7 +10,7 @@ class CreateUserDTO(BaseModel):
 
 # Response DTO for retrieving user details (excluding password)
 class UserDTO(BaseModel):
-    id: int
+    id: Optional[int]
     name: str
     email: EmailStr
 

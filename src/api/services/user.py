@@ -14,21 +14,38 @@ def hash_password(password: str) -> str:
 # Create a new user
 
 class UserServices:
-        def create_user(selt, db: Session, user_data: CreateUserDTO):
-            try:
-                hashed_password = hash_password(user_data.password)
-                new_user = User(
-                    name=user_data.name,
-                    email=user_data.email,
-                    hashed_password=hashed_password
-                )
-                db.add(new_user)
-                db.commit()
-                db.refresh(new_user)
-                return new_user
-            except SQLAlchemyError as e:
-                db.rollback()
-                raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Error creating user")
+        def create_user(self,  user_data: CreateUserDTO, db: Session,):
+            # try:
+                user = db.query(User).filter(User.email == user_data.email).first()
+                if user:
+                     return {"id": user.id, "name": user.name, "email": user.email, "message": "User Already Exist"}
+
+            # except Exception as e:
+                #  return e    
+            #     hashed_password = hash_password(user_data.password)
+            #     new_user = User(
+            #         name=user_data.name,
+            #         email=user_data.email,
+            #         hashed_password=hashed_password
+            #     )
+            #     db.add(new_user)
+            #     db.commit()
+            #     db.refresh(new_user)
+            #     return new_user
+            # except SQLAlchemyError as e:
+            #     db.rollback()
+            #     raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Error creating user")
+            
+                # try:
+                #     new_user = user_services.create_user(db, user_data)
+                #     if new_user:
+                #        return {"status": "success", "data": new_user, "message": "User created successfully"}
+                #     else:
+                #           {"status": "success", "data": new_user, "message": "User Already Exist"}
+                # except HTTPException as e:
+                #     raise e
+                # except Exception as e:
+                #     raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail=str(e))
 
         # # Get user by ID
         # def get_user_by_id(db: Session, user_id: int):
